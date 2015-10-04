@@ -10,7 +10,7 @@ planetNo = 3;
 
 %call PeriodFunction
 %Are we using the wrong axis (it shouldnt be periapsis)
-t = PeriodFunction (G,a,e,Mp,Ms,a,k,fSpan);
+t = PeriodFunction (G,e,Mp,Ms,a,k,fSpan);
 
 %spline switch - set to 1 if you want spline or 0 if you dont
 sSwitch = 1;
@@ -32,7 +32,7 @@ aSwitch = 1;
 % sailAngle = ones(numNodes, 1);
 % n = TotalThrust(z, sailAngle, numNodes, initialMass, invEffic, e, beta, mu, poleVec, semiAxis, Mp, Ms, k,fSpan);
 
-thrustFunction = @(inputs)TotalThrust(G, a, inputs(1), inputs(2:end), numNodes, initialMass, invEffic, e, beta, mu, poleVec, semiAxis, Mp, Ms, k, fSpan, sSwitch);
+thrustFunction = @(inputs)TotalThrust(G, inputs(1), inputs(2:end), numNodes, initialMass, invEffic, e, beta, mu, poleVec, semiAxis, Mp, Ms, k, fSpan, sSwitch);
 result = FlatOrbitOptimiser(thrustFunction, numNodes, aSwitch);
 %     %verySimple = @(x)VerySimple(x);
 
