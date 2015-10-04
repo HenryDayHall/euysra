@@ -1,6 +1,7 @@
 function [e,Mp,T,a,semiAxis,poleVector, mu]=setEarth(Ms)
 %Excentricity (unitless)
-e=0.0167;
+%e=0.0167;
+e=0.8;
 %Mass of the planet (kg)
 Mp=5.972*10^24;
 %Orbital period units of seconds 
