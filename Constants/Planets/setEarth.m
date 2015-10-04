@@ -6,8 +6,9 @@ Mp=5.972*10^24;
 %Orbital period units of seconds 
 %days in a year (according to nasa) * hours in a day * seconds in an hour
 T=365.256*24*60*60;
-%periapsis (assuming = perhelion) units of metres
-a = 1.53*10^11;
+%periapsis (assuming = perhelion) units of metres. Not 1.53*10^11 since
+%that is the point where it is furthest from the earth
+a = 1.471*10^11;
 
 %Semimajor axis (look up acutual value) (N.B. may have to do unit
 %conversions in code) (units in m)
