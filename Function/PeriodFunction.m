@@ -11,19 +11,25 @@ eccAnomaly = atan(sqrt(1-e^2).*sin(f))./(e+cos(f));
 meanAnomaly = eccAnomaly -e.*sin(eccAnomaly);
 tInStartSeg = sqrt(semiAxis^3./(G.*(Mp + Ms))).*meanAnomaly;
 end
-
-numOfPeriod = (f)./(2*pi);
-t = numOfPeriod.*timeSegment(G,e,Mp,Ms,semiAxis,f)*4;
+% 
+% numOfPeriod = (f)./(2*pi);
+% t = numOfPeriod.*timeSegment(G,e,Mp,Ms,semiAxis,f)*4;
 
 
 % The number of segments that have been passed post start seg segment
-%  segmentNumber=floor(f./pi + 1/2);
+segmentNumber=floor(f./pi + 1/2);
+
+disp(segmentNumber);
+
 % The time height of the start seg
-%  tStop  = timeSegment(G,e,Mp,Ms,semiAxis,pi/2);
+tStop  = timeSegment(G,e,Mp,Ms,semiAxis,pi/2);
+disp(tStop);
 % The angle of f, shifted back to the start segment
-%  fInStartSeg = f-(pi + segmentNumber.*pi);
+fInStartSeg = f-(segmentNumber.*pi);
+disp(fInStartSeg);
 % total time passed after number of pies crossed
-%  t = timeSegment(G,e,Mp,Ms,semiAxis,fInStartSeg) + tStop.*2.*segmentNumber;
+t = timeSegment(G,e,Mp,Ms,semiAxis,fInStartSeg) + tStop.*2.*segmentNumber;
+%t = tStop.*2.*segmentNumber;
 
 %t = timeSegment(G,e,Mp,Ms,semiAxis,f);
 
