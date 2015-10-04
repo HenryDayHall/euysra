@@ -14,12 +14,12 @@ invEffic = 1;
 %chose a number of nodes
 %First node = last node
 numNodes = 8;
-%Genrerate the set of true anomalies corrisponding to these nodes
+%Genrerate the set of true anomalies corrisponding to these nodes (radiens)
 fSpan = 0:2*pi./(numNodes-1):2*pi;
 %we can use different none equally space which will make the polynomial interpolated spline much better
 %fSpan = chebPts(numNodes); 
 %Initial mass of the satilite
-%(set to big num arbitarly - in slugs)
+%(set to big num arbitarly - in kg)
 initMass = 1000000;
 %Sail lightness number - this is not actualy a constant, but I'm hoping we
 %can pretend that it is. Other papers seem to do that. (its probably close)
