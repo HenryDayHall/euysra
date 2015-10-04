@@ -1,10 +1,10 @@
-function [ totalThrust ] = TotalThrust( G,z, sailAngle, numNodes, initialMass, invEffic, e, beta, mu, poleVec, semiAxis, Mp,Ms, k, fSpan, sSwitch)
+function [ totalThrust ] = TotalThrust( G,a, z, sailAngle, numNodes, initialMass, invEffic, e, beta, mu, poleVec, semiAxis, Mp,Ms, k, fSpan, sSwitch)
 %CALCTHRUST This function will return the cumulative thrust required to
 %fly at this height and sail angle. It will use ThrustRoyund orbit then
 %apply spline then intergrate the result.
 
 %get the thrust at each step
-thrust = ThrustRoundOrbit(G, z, sailAngle, numNodes, initialMass, invEffic, e, beta, mu, poleVec, semiAxis, Mp,Ms, k, fSpan);
+thrust = ThrustRoundOrbit(G,a , z, sailAngle, numNodes, initialMass, invEffic, e, beta, mu, poleVec, semiAxis, Mp,Ms, k, fSpan);
 
 totalThrust = 0;
 

@@ -1,7 +1,7 @@
 %This function takes in the true anomaly and some parameters of the system
 %and outputs the time (in some units) at that true anomaly
 %Going to be usefull for calculating the change in mass
-function [t] = PeriodFunction (G,e,Mp,Ms,semiAxis,k,f)
+function [t] = PeriodFunction (G,a,e,Mp,Ms,semiAxis,k,f)
 
 %ABBANDON SHIP -> we are now using a diffrent calculation-------
 %The calulation is found on pg588 of theory of orbits
