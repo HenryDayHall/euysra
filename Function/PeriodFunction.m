@@ -7,7 +7,7 @@ function [t] = PeriodFunction (G,e,Mp,Ms,semiAxis,f)
 %This calculates the time values for each f between -pi/2 & pi/2.
 %We're calling this the start seg
 function tInStartSeg = timeSegment(G,e,Mp,Ms,semiAxis,f)
-eccAnomaly = atan(sqrt(1-e^2).*sin(f))./(e+cos(f));
+eccAnomaly = atan(sqrt(1-e^2).*sin(f)./(e+cos(f)));
 meanAnomaly = eccAnomaly -e.*sin(eccAnomaly);
 tInStartSeg = sqrt(semiAxis^3./(G.*(Mp + Ms))).*meanAnomaly;
 end
