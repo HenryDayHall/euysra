@@ -9,7 +9,7 @@ function [t] = PeriodFunction (G,e,Mp,Ms,semiAxis,f)
 function tInStartSeg = timeSegment(G,e,Mp,Ms,semiAxis,f)
 eccAnomaly = atan(sqrt(1-e^2).*sin(f)./(e+cos(f)));
 meanAnomaly = eccAnomaly -e.*sin(eccAnomaly);
-tInStartSeg = sqrt(semiAxis^3./(G.*(Mp + Ms))).*meanAnomaly;
+tInStartSeg = sqrt((semiAxis^3)./(G.*(Mp + Ms))).*meanAnomaly;
 end
 
 % The number of segments that have been passed post start seg segment
