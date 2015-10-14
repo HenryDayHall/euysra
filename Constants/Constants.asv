@@ -1,4 +1,4 @@
-function [G, k, Ms, Mp, T, e, a, thrusterConst, specificImpulse, initMass, numNodes, beta, semiAxis,poleVector, fSpan, mu, muDimless] = Constants (planetNo)
+function [G, k, Ms, Mp, T, e, a, thrusterConst, invEffic, initMass, numNodes, beta, semiAxis,poleVector, fSpan, mu, muDimless] = Constants (planetNo)
 %Gravitational constant (N*m^2*kg^-2)
 G=6.673*10^-11;
 %Mass of sun (kg)
@@ -8,9 +8,9 @@ k=8.169*10^-6;
 %Thruster constant is the max power of the thruster (not currently used)
 %(set to one arbitarly - idk what units)
 thrusterConst = 1;
-%specific impulse is
+%efficiency is 
 %(set to one arbitarly - idk what units)
-specificImpulse = 1;
+efficency = 1;
 %chose a number of nodes
 %First node = last node
 numNodes = 8;

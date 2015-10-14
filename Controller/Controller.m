@@ -4,7 +4,7 @@
 %Pick a planet
 planetNo = 3;
 %Set the constants
-[G, k, Ms, Mp, T, e, a, thrusterConst, invEffic, initialMass, numNodes, beta, semiAxis,poleVec, fSpan, mu] = Constants(planetNo);
+[G, k, Ms, Mp, T, e, a, thrusterConst, specificImpulse, initialMass, numNodes, beta, semiAxis,poleVec, fSpan, mu, muDimless] = Constants(planetNo);
 
 %alpha = pi./2;
 
@@ -32,7 +32,7 @@ aSwitch = 1;
 % sailAngle = ones(numNodes, 1);
 % n = TotalThrust(z, sailAngle, numNodes, initialMass, invEffic, e, beta, mu, poleVec, semiAxis, Mp, Ms, k,fSpan);
 
-thrustFunction = @(inputs)TotalThrust(G, inputs(1), inputs(2:end), numNodes, initialMass, invEffic, e, beta, mu, poleVec, semiAxis, Mp, Ms, k, fSpan, sSwitch);
+thrustFunction = @(inputs)TotalThrust(G, inputs(1), inputs(2:end), numNodes, initialMass, specificImpulse, e, beta, mu, poleVec, semiAxis, Mp, Ms, k, fSpan, sSwitch);
 result = FlatOrbitOptimiser(thrustFunction, numNodes, aSwitch);
 %     %verySimple = @(x)VerySimple(x);
 

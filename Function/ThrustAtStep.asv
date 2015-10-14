@@ -17,7 +17,7 @@ sailNorm = SailNormal(r1);
 
 %Now we have all the stuff we need
 xThrust = mass.*(dDotX - 2.*dotY).*(1 + e.*cos(f)) - mass.*(gradOmega(1) - beta.*(1 - mu).*(cos(sailAngle).^2).*sailNorm(1)./norm(r1).^2);
-yThrust = mass.*(dDotY - 2.*dotX).*(1 + e.*cos(f)) - mass.*(gradOmega(2) - beta.*(1 - mu).*(cos(sailAngle).^2).*sailNorm(2)./norm(r1).^2);
+yThrust = mass.*(dDotY - 2.*dotX).*(1 + e.*cos(f)) - mass.*(gradOmega(2) - beta.*(1 - mu).*(cos(sailAngle).^2).*sailNorm(2)./norm(r1).^2)i;
 zThrust = mass.*(z).*(1 + e.*cos(f)) - mass.*gradOmega(3);
 
 thrust = sqrt(xThrust.^2 + yThrust.^2 + zThrust.^2);

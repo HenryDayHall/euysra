@@ -1,4 +1,4 @@
-function [ thrust ] = ThrustRoundOrbit(G, z, sailAngle, numNodes, initialMass, invEffic, e, beta, mu, poleVec, semiAxis, Mp,Ms, k, fSpan)
+function [ thrust ] = ThrustRoundOrbit(G, z, sailAngle, numNodes, initialMass, specificImpulse, e, beta, mu, poleVec, semiAxis, Mp,Ms, k, fSpan)
 %CALCTHRUST This function will return the the thrust at each step
 %Sail angle needs to be a vector
 %fly at this height with this sail angle set.
@@ -10,11 +10,14 @@ thrust(1) = ThrustAtStep( z, sailAngle(1), fSpan(1), e, beta, 1, mu,  poleVec, s
 %consider i = 1 to be the starting node (f= 0), always calculate trust for
 %node i + 1, as at t= 0 the thruster will have fired for 0 time therefor no
 %fuel used.
+%henry's constant
+currentMass = initialMass;
 for i=1:(numNodes -1);
     %calculate the time taken for the prevous node transition
     timeTaken = PeriodFunction(G,e,Mp,Ms,semiAxis,fSpan(i + 1)) - PeriodFunction(G,e,Mp,Ms,semiAxis,k,fSpan(i));
-    massMod = (timeTaken.*thrust(i).*invEffic)./initialMass;
-    thrust(i+1) = ThrustAtStep( z, sailAngle(i+1), fSpan(i+1), e, beta, massMod, mu,  poleVec, semiAxis);
+    changeInMass = (timeTaken.*thrust(i)./specificImpulse);
+    currentMass = currentMass - changeInMass;
+    thrust(i+1) = ThrustAtStep( z, sailAngle(i+1), fSpan(i+1), e, beta, currentMass, mu,  poleVec, semiAxis);
 end
 %Deal with the last node
 %dont need this?? Done in the for loop??
